@@ -86,7 +86,7 @@ class KenjiLauncher : Activity() {
     private fun requestGameFile() {
         val pick = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
-            Intent.setType = "*/*"
+            type = "*/*" // FIX: nicht Intent.setType
             addFlags(
                 Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
                         Intent.FLAG_GRANT_READ_URI_PERMISSION or
@@ -162,7 +162,7 @@ class KenjiLauncher : Activity() {
     private fun requestIconImage() {
         val pickIcon = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
-            Intent.setType = "image/*"
+            type = "image/*" // FIX: nicht Intent.setType
             addFlags(
                 Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
                         Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -196,7 +196,7 @@ class KenjiLauncher : Activity() {
         val sm = getSystemService(ShortcutManager::class.java) ?: return false
 
         val launchIntent = Intent(this, KenjiLauncher::class.java).apply {
-            Intent.setAction = Intent.ACTION_VIEW
+            action = Intent.ACTION_VIEW           // FIX: nicht Intent.setAction
             setData(gameUri)
             putExtra("bootPath", gameUri.toString())
         }
@@ -245,7 +245,7 @@ class KenjiLauncher : Activity() {
         try { grantUriPermission("org.kenjinx.android", uri, rw) } catch (_: Exception) {}
 
         val primary = Intent().apply {
-            Intent.setAction = "org.kenjinx.android.LAUNCH_GAME"
+            action = "org.kenjinx.android.LAUNCH_GAME"   // FIX
             setClassName("org.kenjinx.android", "org.kenjinx.android.MainActivity")
             setDataAndType(uri, mime)
             clipData = clip
@@ -253,7 +253,7 @@ class KenjiLauncher : Activity() {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or rw)
         }
         val fallback = Intent().apply {
-            Intent.setAction = Intent.ACTION_VIEW
+            action = Intent.ACTION_VIEW                 // FIX
             setClassName("org.kenjinx.android", "org.kenjinx.android.MainActivity")
             setDataAndType(uri, mime)
             clipData = clip
