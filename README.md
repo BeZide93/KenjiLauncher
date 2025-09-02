@@ -1,5 +1,7 @@
 # Kenji Launcher
 
+<img src="icon.png" alt="KenjiLauncher Logo" width="150"/>
+
 A helper app for Android that lets you create **home screen shortcuts** to launch games directly in the Kenji-NX emulator.
 
 ## Features
