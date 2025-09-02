@@ -1,0 +1,59 @@
+# Android/Gradle
+.gradle/
+local.properties
+gradle-app.setting
+
+# Build output
+/build/
+/*/build/
+app/build/
+app/**/outputs/
+captures/
+.externalNativeBuild/
+.cxx/
+gen/
+out/
+
+# IDE
+*.iml
+.idea/*
+!.idea/codeStyles
+!.idea/runConfigurations
+
+# Logs
+*.log
+*.hprof
+
+# Signing / Keys
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+
+# App artifacts
+*.apk
+*.aab
+app/release/
+app/debug/
+
+# Medien / ROMs
+*.nsp
+*.xci
+*.xcz
+*.nca
+ROMs/
+Roms/
+roms/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+
+# NDK / CMake
+obj/
+*.so
+
+# Crashlytics / Firebase
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
